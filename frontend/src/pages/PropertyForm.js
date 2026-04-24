@@ -142,12 +142,12 @@ function PropertyForm() {
 
             <div className="form-row">
               <div className="form-group">
-                <label className="form-label">Price (₹) *</label>
+                <label className="form-label">Price (₹ in Lakhs) *</label>
                 <input
                   type="number"
                   name="price"
                   className="form-input"
-                  placeholder="e.g. 5000000"
+                  placeholder="e.g. 50"
                   value={form.price}
                   onChange={handleChange}
                   id="property-price"
