@@ -34,7 +34,12 @@ function Signup() {
       localStorage.setItem('user', JSON.stringify(res.data));
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.error || 'Registration failed. Please try again.');
+      console.error("Registration error:", err);
+      if (!err.response) {
+        setError('Network error. Is the backend server running?');
+      } else {
+        setError(err.response?.data?.error || 'Registration failed. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

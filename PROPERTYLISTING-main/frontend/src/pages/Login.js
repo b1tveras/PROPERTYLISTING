@@ -26,7 +26,12 @@ function Login() {
       localStorage.setItem('user', JSON.stringify(res.data));
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.error || 'Invalid credentials. Please try again.');
+      console.error("Login error:", err);
+      if (!err.response) {
+        setError('Network error. Is the backend server running?');
+      } else {
+        setError(err.response?.data?.error || 'Invalid credentials. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
